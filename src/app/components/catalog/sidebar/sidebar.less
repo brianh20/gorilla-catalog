@@ -1,0 +1,70 @@
+.sidebar {
+  min-width: 200px;
+  margin-left: 20px;
+  margin-right: 40px;
+
+
+  &__header{
+    width: 100%;
+    font-size: 24px;
+    font-weight: bolder;
+    padding-bottom: 18px;
+    border-bottom: 1px solid grey;
+  }
+
+  &__filters{
+    margin-top:40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid grey;
+
+    &__header{
+      font-weight: bolder;
+      margin-bottom: 10px;
+    }
+
+    &__filter{
+      background-color: lightgrey;
+      padding: 6px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &__delete {
+        cursor: pointer;
+      }
+
+    }
+    &__clear{
+      margin-top: 10px;
+      text-align: right;
+      font-weight: bolder;
+      cursor: pointer;
+    }
+  }
+
+  &__categories{
+    &__category{
+      margin-top: 40px;
+      margin-bottom: 30px;
+
+      &__header{
+        font-weight: bolder;
+        margin-bottom: 10px;
+      }
+      &__item{
+        cursor: pointer;
+        margin-bottom: 4px;
+        
+        &--name {
+          font-weight: bolder;
+          font-size: 12px;
+        }
+
+        &--count {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

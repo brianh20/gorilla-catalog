@@ -1,6 +1,11 @@
 <div class="catalog">
 
-  <sidebar></sidebar>
+  <sidebar class="catalog__sidebar" 
+    facets="$ctrl.facets" 
+    active-facets="$ctrl.activeFacets">
+  </sidebar>
   <!-- <filters></filters> -->
-  <display items="$ctrl.items"></display>
+  <display class="catalog__display" 
+    items="$ctrl.items">
+  </display>
 </div>

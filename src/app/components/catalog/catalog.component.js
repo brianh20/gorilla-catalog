@@ -9,6 +9,8 @@ export const CatalogComponent = {
       this.Site = new this.SiteService();
 
       this.items=[];
+      this.facets=[];
+      this.activeFacets=[];
     }
 
     $onInit() {
@@ -24,6 +26,8 @@ export const CatalogComponent = {
 
     transformData(data){
       this.items = data.catalog;
+      this.facets = data.facets;
+      this.activeFacets = data.activeFacets;
     }
 
   }

@@ -1,1 +1,29 @@
-Sidebar
+<div class="sidebar">
+  <div class="sidebar__header">Shop By</div>
+  
+  <div class="sidebar__filters">
+    <div class="sidebar__filters__header">
+      Applied:
+    </div>
+    <div class="sidebar__filters__filter">
+      <div class="sidebar__filters__filter__name">Attribute category 1</div>
+      <div class="sidebar__filters__filter__delete">X</div>
+    </div>
+    <div class="sidebar__filters__clear">
+      Clear all
+    </div>
+  </div>
+
+  <div class="sidebar__categories">
+    <div class="sidebar__categories__category" ng-repeat="facet in $ctrl.facets">
+      <div class="sidebar__categories__category__header">
+        {{facet.category}}
+      </div>
+      <div class="sidebar__categories__category__item" ng-repeat="filter in facet.filters">
+        <span class="sidebar__categories__category__item--name">{{filter.name}}</span>
+        <span class="sidebar__categories__category__item--count">({{filter.results}})</span>
+      </div>
+    </div>
+  </div>
+
+</div>
