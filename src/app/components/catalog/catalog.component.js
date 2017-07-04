@@ -5,7 +5,6 @@ export const CatalogComponent = {
   controller: class CatalogComponentController {
   	constructor(SiteService) {
       'ngInject';
-
       this.SiteService = SiteService;
       this.Site = new this.SiteService();
     }
@@ -20,11 +19,6 @@ export const CatalogComponent = {
         }, ()=> {
           console.log('Error resolving response');
         });
-
-        //Check for mobile in order to wireFrame
-        if (window.innerWidth < 400) {
-            this.mobileDisplay = true;
-        }
     }
   }
 };
