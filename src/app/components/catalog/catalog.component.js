@@ -7,19 +7,25 @@ export const CatalogComponent = {
       'ngInject';
       this.SiteService = SiteService;
       this.Site = new this.SiteService();
+
+      this.items=[];
     }
 
     $onInit() {
-        //Init Contact List
-        this.results = this.Site
-        .get()
-        .then((response) => {
-          this.site = response.data;
-          console.log(this.site);
-        }, ()=> {
-          console.log('Error resolving response');
-        });
+      //Init Contact List
+      this.results = this.Site
+      .get()
+      .then((response) => {
+        this.transformData(response.data);
+      }, ()=> {
+        console.log('Error resolving response');
+      });
     }
+
+    transformData(data){
+      this.items = data.catalog;
+    }
+
   }
 };
 

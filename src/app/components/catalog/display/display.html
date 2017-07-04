@@ -1,1 +1,29 @@
-Display
+<div class="display">
+  <div class="display__item" ng-repeat="item in $ctrl.items">
+    
+
+    <div class="display__item__image">
+      <img src="{{item.img}}" />
+
+      <div class="display__item__image__ribbon" 
+           ng-if="item.ribbon" 
+           ng-class="{'red': item.ribbon==='Sale'}">
+        {{item.ribbon}}
+      </div>
+    </div>
+
+    <div class="display__item__description">
+      <div class="display__item__description__name">{{item.name}}</div>
+      <div class="display__item__description__price">
+        <div class="display__item__description__price--regular"
+             ng-class="{'striked' : item.price.special }">${{item.price.regular || item.price}}</div>
+        <div class="display__item__description__price--special" ng-if="item.price.special">${{item.price.special}}</div>
+      </div>
+
+    
+
+    </div>
+
+  Colors
+  </div>
+</div>
