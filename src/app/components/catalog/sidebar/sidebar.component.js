@@ -4,7 +4,6 @@ export const SidebarComponent = {
   template,
   bindings: {
     facets: '<',
-    activeFacets: '<',
     activateFacet: '&',
     deactivateFacet: '&',
     deactivateAll: '&'
@@ -21,14 +20,20 @@ export const SidebarComponent = {
 
     removeFacet(facet, filter) {
       this.deactivateFacet({facet, filter});
-
-      //check for true
+      
+      this.clearAll = false;
+      this.facets.forEach((facet)=>{
+        facet.filters.forEach((filter)=>{
+          if (filter.active) {
+            this.clearAll = true;
+          }
+        });
+      });
     }
 
     removeAll() {
       this.clearAll=false;
       this.deactivateAll();
-      
     }
   }
 };
