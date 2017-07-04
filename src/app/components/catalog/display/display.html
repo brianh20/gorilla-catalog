@@ -2,9 +2,14 @@
   <div class="display__item" ng-repeat="item in $ctrl.items">
     
 
-    <div class="display__item__image">
-      <img src="{{item.img}}" />
+    <div class="display__item__image" ng-style="{'background-color': item.bgColor}">
+      <img src="{{item.img}}" ng-if="!item.bgColor" />
 
+      <span class="display__item__image__spanribbon" 
+           ng-if="item.ribbon && item.bgColor" 
+           ng-class="{'red': item.ribbon==='Sale'}">
+           {{item.ribbon}}</span>
+      
       <div class="display__item__image__ribbon" 
            ng-if="item.ribbon" 
            ng-class="{'red': item.ribbon==='Sale'}">
@@ -34,8 +39,7 @@
 
     <div class="display__item__colors">
       <div class="display__item__colors__color" ng-repeat="color in item.colors"
-        ng-style="{'background-color': color.code}">
-        <!-- <span class="display__item__colors__color--tooltip">{{color.name}}</span> -->
+        ng-style="{'background-color': color.code}" ng-click="item.bgColor=color.code">
       </div>
     </div>
 
