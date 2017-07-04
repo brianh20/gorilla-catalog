@@ -1,5 +1,4 @@
 <div class="catalog">
-
   <sidebar class="catalog__sidebar" 
     facets="$ctrl.facets" 
     activate-facet="$ctrl.activateFacet(facet, filter)"
@@ -13,11 +12,13 @@
       display-limits="$ctrl.topControls.productsShown"
       sorting="$ctrl.topControls.sorting"
       sort-type="$ctrl.sortType"
-      re-sort="$ctrl.sortItems(newType)">  
+      re-sort="$ctrl.sortItems(newType)"
+      re-limit="$ctrl.newLimit(newLimit)">  
     </filters>
-    
+
     <display class="catalog__display" 
-      items="$ctrl.items">
+      items="$ctrl.items"
+      maximum="$ctrl.maximum">
     </display>
   </div>
 </div>

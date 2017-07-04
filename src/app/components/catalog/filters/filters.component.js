@@ -7,12 +7,18 @@ export const FiltersComponent = {
     displayLimits: '<',
     sorting: '<',
     sortType: '<',
-    reSort: '&'
+    reSort: '&',
+    reLimit: '&'
   },
   controller: class FiltersComponentController {   
     changeSorting(event) {
       let newType = event.target.value;
       this.reSort({newType});
+    }
+
+    changeLimit(event) {
+      let newLimit = event.target.value;
+      this.reLimit({newLimit});
     }
   }
 };

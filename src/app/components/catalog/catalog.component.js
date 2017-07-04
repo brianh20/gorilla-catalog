@@ -30,8 +30,13 @@ export const CatalogComponent = {
       this.data = data;
       this.items = data.catalog;
       this.topControls = data.topControls;
+      
+      //added for limit example
+      this.topControls.productsShown.push('2');
+      
       this.facets = this.removeAll(data.facets);
       this.sortType = 'Position';
+      this.maximum = 12;
     }
 
     activateFacet(facet,filter) {
@@ -51,21 +56,26 @@ export const CatalogComponent = {
       return facets;
     }
 
+    newLimit(limit){
+      this.maximum = limit;
+    }
+
+    
     sortItems(type) {
       if (type==='Price Asc.') {
         this.items.forEach((element)=>{
           if (element.price.regular || element.price.special) {
             if (element.price.regular > element.price.special && element.price.special) {
-              element.goingPrice = element.price.special;
+              element.order = element.price.special;
             } else {
-              element.goingPrice = element.price.regular;
+              element.order = element.price.regular;
             }
           } else {
-            element.goingPrice = element.price;
+            element.order = element.price;
           }
         });
         this.items.sort(function(a, b) {
-          return parseFloat(a.goingPrice) - parseFloat(b.goingPrice);
+          return parseFloat(a.order) - parseFloat(b.order);
         });
       }
 
@@ -73,16 +83,26 @@ export const CatalogComponent = {
         this.items.forEach((element)=>{
           if (element.price.regular || element.price.special) {
             if (element.price.regular > element.price.special && element.price.special) {
-              element.goingPrice = element.price.special;
+              element.order = element.price.special;
             } else {
-              element.goingPrice = element.price.regular;
+              element.order = element.price.regular;
             }
           } else {
-            element.goingPrice = element.price;
+            element.order = element.price;
           }
         });
         this.items.sort(function(a, b) {
-          return parseFloat(b.goingPrice) - parseFloat(a.goingPrice);
+          return parseFloat(b.order) - parseFloat(a.order);
+        });
+      }
+
+
+      if (type==='Position') {
+        this.items.forEach((element)=>{        
+          element.order = element.id;
+        });
+        this.items.sort(function(a, b) {
+          return parseFloat(a.order) - parseFloat(b.order);
         });
       }
 

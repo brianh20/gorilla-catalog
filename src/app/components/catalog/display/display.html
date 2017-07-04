@@ -1,5 +1,5 @@
 <div class="display">
-  <div class="display__item" ng-repeat="item in $ctrl.items">
+  <div class="display__item" ng-repeat="item in $ctrl.items | limitTo: $ctrl.maximum">
     
     <div class="display__item__image" ng-style="{'background-color': item.bgColor}">
       <img src="{{item.img}}" ng-if="!item.bgColor" />

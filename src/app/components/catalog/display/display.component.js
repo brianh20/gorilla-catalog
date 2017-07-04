@@ -3,7 +3,8 @@ import template from './display.html';
 export const DisplayComponent = {
   template,
   bindings: {
-    items: '<'
+    items: '<',
+    maximum: '<'
   },
   controller: class DisplayComponentController {
   }

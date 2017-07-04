@@ -19,7 +19,7 @@
     <div class="filters__left__limit">
       <div class="filters__left__limit__name">Show</div>
       <div class="filters__left__limit__options">
-        <select>
+        <select ng-mouseup="$ctrl.changeLimit($event)">
           <option ng-repeat="limit in $ctrl.displayLimits">{{limit}}</option>
         </select>
       </div>
