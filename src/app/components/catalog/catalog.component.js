@@ -32,7 +32,7 @@ export const CatalogComponent = {
       this.topControls = data.topControls;
       
       //added for limit example
-      this.topControls.productsShown.push('2');
+      this.topControls.productsShown.push('3');
       
       this.facets = this.removeAll(data.facets);
       this.sortType = 'Position';
