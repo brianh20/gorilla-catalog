@@ -11,6 +11,7 @@ export const CatalogComponent = {
       this.items=[];
       this.facets=[];
       this.activeFacets=[];
+      this.topControls={};
     }
 
     $onInit() {
@@ -28,6 +29,7 @@ export const CatalogComponent = {
       this.items = data.catalog;
       this.facets = data.facets;
       this.activeFacets = data.activeFacets;
+      this.topControls = data.topControls;
     }
 
   }

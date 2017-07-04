@@ -4,8 +4,15 @@
     facets="$ctrl.facets" 
     active-facets="$ctrl.activeFacets">
   </sidebar>
-  <!-- <filters></filters> -->
-  <display class="catalog__display" 
-    items="$ctrl.items">
-  </display>
+
+  <div class="catalog__main">
+    <filters
+      views="$ctrl.topControls.views"
+      display-limits="$ctrl.topControls.productsShown"
+      sorting="$ctrl.topControls.sorting">  
+    </filters>
+    <display class="catalog__display" 
+      items="$ctrl.items">
+    </display>
+  </div>
 </div>

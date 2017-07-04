@@ -1,1 +1,33 @@
-FILTERS
+<div class="filters">
+  <div class="filters__left">
+    <div class="filters__left__views">
+      <div class="filters__left__views__type" ng-repeat="view in $ctrl.views">
+        {{view.name}}
+      </div>
+    </div>
+
+    <div class="filters__left__sorting">
+      <div class="filters__left__sorting__name">Sort</div>
+      <div class="filters__left__sorting__options">
+        <select>
+          <option ng-repeat="sort in $ctrl.sorting">{{sort.name}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="filters__left__limit">
+      <div class="filters__left__limit__name">Show</div>
+      <div class="filters__left__limit__options">
+        <select>
+          <option ng-repeat="limit in $ctrl.displayLimits">{{limit}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="filters__right">
+    <div class="filters__right__page">
+    asd
+    </div>
+  </div>
+</div>
