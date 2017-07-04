@@ -2,7 +2,9 @@
 
   <sidebar class="catalog__sidebar" 
     facets="$ctrl.facets" 
-    active-facets="$ctrl.activeFacets">
+    activate-facet="$ctrl.activateFacet(facet, filter)"
+    deactivate-facet="$ctrl.removeFacet(facet, filter)"
+    deactivate-all="$ctrl.removeAll($ctrl.facets)">
   </sidebar>
 
   <div class="catalog__main">

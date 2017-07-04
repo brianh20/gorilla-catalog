@@ -10,7 +10,6 @@ export const CatalogComponent = {
 
       this.items=[];
       this.facets=[];
-      this.activeFacets=[];
       this.topControls={};
     }
 
@@ -27,10 +26,29 @@ export const CatalogComponent = {
 
     transformData(data){
       this.items = data.catalog;
-      this.facets = data.facets;
-      this.activeFacets = data.activeFacets;
       this.topControls = data.topControls;
+
+      
+      this.facets = this.removeAll(data.facets);
     }
+
+    activateFacet(facet,filter) {
+      this.facets[facet].filters[filter].active=true;
+    }
+
+    removeFacet(facet, filter) {
+      this.facets[facet].filters[filter].active=false;
+    }
+
+    removeAll(facets){
+      facets.forEach((facet) => {
+        facet.filters.forEach((filter)=>{
+          filter.active = false;
+        });
+      });
+      return facets;
+    }
+
 
   }
 };

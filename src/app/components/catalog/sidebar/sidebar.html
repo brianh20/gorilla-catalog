@@ -5,25 +5,33 @@
     <div class="sidebar__filters__header">
       Applied:
     </div>
-    <div class="sidebar__filters__filter">
-      <div class="sidebar__filters__filter__name">Attribute category 1</div>
-      <div class="sidebar__filters__filter__delete">X</div>
+    <div ng-repeat="facet in $ctrl.facets track by $index">
+      <div ng-repeat="filter in facet.filters track by $index">
+        <div class="sidebar__filters__filter" ng-show="filter.active" ng-click="$ctrl.removeFacet($parent.$index, $index)">
+          <div class="sidebar__filters__filter__name">Attribute category 1</div>
+          <div class="sidebar__filters__filter__delete">X</div>
+        </div>
+      </div>
     </div>
-    <div class="sidebar__filters__clear">
+
+    <div class="sidebar__filters__clear" ng-if="$ctrl.clearAll" ng-click="$ctrl.removeAll()">
       Clear all
     </div>
   </div>
 
   <div class="sidebar__categories">
-    <div class="sidebar__categories__category" ng-repeat="facet in $ctrl.facets">
+    <div class="sidebar__categories__category" 
+      ng-repeat="facet in $ctrl.facets track by $index">
       <div class="sidebar__categories__category__header">
         {{facet.category}}
       </div>
-      <div class="sidebar__categories__category__item" ng-repeat="filter in facet.filters">
+      <div class="sidebar__categories__category__item" 
+        ng-repeat="filter in facet.filters track by $index" 
+        ng-click="$ctrl.selectFilter($parent.$index, $index)"
+        ng-show="!filter.active">
         <span class="sidebar__categories__category__item--name">{{filter.name}}</span>
         <span class="sidebar__categories__category__item--count">({{filter.results}})</span>
       </div>
     </div>
   </div>
-
 </div>
