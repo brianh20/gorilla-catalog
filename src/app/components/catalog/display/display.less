@@ -35,10 +35,28 @@
       }
     }
 
+
     &__description {
       &__name{
         margin-top:16px;
         font-weight: bolder;
+      }
+
+      &__rating {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        span{
+          margin: 0;
+          padding: 0;
+        }
+
+        &--yes{
+          color: black;
+        }
+        &--no{
+          color: blue;
+        }
+
       }
 
       &__price{
@@ -60,6 +78,25 @@
       }
     }
 
+    &__colors {
+      display: flex;
+      margin-top: 10px;
+      &__color {
+        border-radius: 50%;
+        height: 14px;
+        width: 14px;
+        content: ' ';
+        margin-right: 5px;
+
+/*        &--tooltip:hover{
+          visibility: visible;
+          position: relative;
+          bottom: 20px;
+          right: 100%;
+          z-index: 1;
+        }*/
+      }
+    }
 
   }
 }

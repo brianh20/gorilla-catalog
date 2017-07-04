@@ -12,18 +12,32 @@
       </div>
     </div>
 
+
+
     <div class="display__item__description">
       <div class="display__item__description__name">{{item.name}}</div>
+
+      <div class="display__item__description__rating">
+        <span class="display__item__description__rating--yes">
+        {{'X '.repeat(item.rating.toFixed(0))}}</span>
+        <span class="display__item__description__rating--no">{{'Y'.repeat(5-item.rating.toFixed(0))}}</span>
+      </div>
+
+
       <div class="display__item__description__price">
         <div class="display__item__description__price--regular"
              ng-class="{'striked' : item.price.special }">${{item.price.regular || item.price}}</div>
         <div class="display__item__description__price--special" ng-if="item.price.special">${{item.price.special}}</div>
       </div>
-
-    
-
     </div>
 
-  Colors
+    <div class="display__item__colors">
+      <div class="display__item__colors__color" ng-repeat="color in item.colors"
+        ng-style="{'background-color': color.code}">
+        <!-- <span class="display__item__colors__color--tooltip">{{color.name}}</span> -->
+      </div>
+    </div>
+
+
   </div>
 </div>
