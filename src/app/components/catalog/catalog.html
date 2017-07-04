@@ -11,8 +11,11 @@
     <filters
       views="$ctrl.topControls.views"
       display-limits="$ctrl.topControls.productsShown"
-      sorting="$ctrl.topControls.sorting">  
+      sorting="$ctrl.topControls.sorting"
+      sort-type="$ctrl.sortType"
+      re-sort="$ctrl.sortItems(newType)">  
     </filters>
+    
     <display class="catalog__display" 
       items="$ctrl.items">
     </display>

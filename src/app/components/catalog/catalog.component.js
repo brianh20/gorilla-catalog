@@ -8,9 +8,11 @@ export const CatalogComponent = {
       this.SiteService = SiteService;
       this.Site = new this.SiteService();
 
-      this.items=[];
-      this.facets=[];
-      this.topControls={};
+      this.data = {};
+      this.items = [];
+      this.facets = [];
+      this.topControls = {};
+      this.sortType = '';
     }
 
     $onInit() {
@@ -25,11 +27,11 @@ export const CatalogComponent = {
     }
 
     transformData(data){
+      this.data = data;
       this.items = data.catalog;
       this.topControls = data.topControls;
-
-      
       this.facets = this.removeAll(data.facets);
+      this.sortType = 'Position';
     }
 
     activateFacet(facet,filter) {
@@ -47,6 +49,43 @@ export const CatalogComponent = {
         });
       });
       return facets;
+    }
+
+    sortItems(type) {
+      if (type==='Price Asc.') {
+        this.items.forEach((element)=>{
+          if (element.price.regular || element.price.special) {
+            if (element.price.regular > element.price.special && element.price.special) {
+              element.goingPrice = element.price.special;
+            } else {
+              element.goingPrice = element.price.regular;
+            }
+          } else {
+            element.goingPrice = element.price;
+          }
+        });
+        this.items.sort(function(a, b) {
+          return parseFloat(a.goingPrice) - parseFloat(b.goingPrice);
+        });
+      }
+
+      if (type==='Price Desc.') {
+        this.items.forEach((element)=>{
+          if (element.price.regular || element.price.special) {
+            if (element.price.regular > element.price.special && element.price.special) {
+              element.goingPrice = element.price.special;
+            } else {
+              element.goingPrice = element.price.regular;
+            }
+          } else {
+            element.goingPrice = element.price;
+          }
+        });
+        this.items.sort(function(a, b) {
+          return parseFloat(b.goingPrice) - parseFloat(a.goingPrice);
+        });
+      }
+
     }
 
 

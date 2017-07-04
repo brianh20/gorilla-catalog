@@ -6,7 +6,6 @@ export const DisplayComponent = {
     items: '<'
   },
   controller: class DisplayComponentController {
-
   }
 };
 

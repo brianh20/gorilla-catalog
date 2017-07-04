@@ -5,9 +5,15 @@ export const FiltersComponent = {
   bindings: {
     views: '<',
     displayLimits: '<',
-    sorting: '<'
+    sorting: '<',
+    sortType: '<',
+    reSort: '&'
   },
-  controller: class FiltersComponentController {
+  controller: class FiltersComponentController {   
+    changeSorting(event) {
+      let newType = event.target.value;
+      this.reSort({newType});
+    }
   }
 };
 

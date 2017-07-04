@@ -1,23 +1,18 @@
 <div class="display">
   <div class="display__item" ng-repeat="item in $ctrl.items">
     
-
     <div class="display__item__image" ng-style="{'background-color': item.bgColor}">
       <img src="{{item.img}}" ng-if="!item.bgColor" />
-
       <span class="display__item__image__spanribbon" 
            ng-if="item.ribbon && item.bgColor" 
            ng-class="{'red': item.ribbon==='Sale'}">
            {{item.ribbon}}</span>
-      
       <div class="display__item__image__ribbon" 
            ng-if="item.ribbon" 
            ng-class="{'red': item.ribbon==='Sale'}">
         {{item.ribbon}}
       </div>
     </div>
-
-
 
     <div class="display__item__description">
       <div class="display__item__description__name">{{item.name}}</div>
@@ -28,7 +23,6 @@
         <span class="display__item__description__rating--no">
         {{'&#9734;'.repeat(5-item.rating.toFixed(0))}}</span>
       </div>
-
 
       <div class="display__item__description__price">
         <div class="display__item__description__price--regular"

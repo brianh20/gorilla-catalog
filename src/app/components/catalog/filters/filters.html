@@ -9,8 +9,9 @@
     <div class="filters__left__sorting">
       <div class="filters__left__sorting__name">Sort</div>
       <div class="filters__left__sorting__options">
-        <select>
-          <option ng-repeat="sort in $ctrl.sorting">{{sort.name}}</option>
+        <select ng-mouseup="$ctrl.changeSorting($event)">
+          <option ng-repeat="sort in $ctrl.sorting"
+            >{{sort.name}}</option>
         </select>
       </div>
     </div>
